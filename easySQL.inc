@@ -58,7 +58,7 @@ stock db_add_column(DB:handle, table[], name[], type[],
 {
 	format(query, sizeof g_query, "alter table %s add if not exists %s %s(%d)", table, name, type, length);
 	format(query, sizeof g_query, "%s %s", g_query, (null ? "not null" : ""));
-	if(strlen(default)) format(query, sizeof g_query, "%s default %s", g_query, default);
+	if(strlen(default)) format(query, sizeof g_query, "%s default '%s'", g_query, default);
 	db_free_result(db_query(handle, query));
 }
 
