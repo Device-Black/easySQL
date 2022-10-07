@@ -35,7 +35,7 @@ static g_query[4096], DBResult:g_cache;
 
 stock db_create_table(DB:handle, table[])
 {
-	strcpy(g_query, "create table '%s' ('id' integer primary key asc)");
+	strcpy(g_query, "create table if not exists '%s' ('id' integer primary key asc)");
 	format(g_query, sizeof g_query, g_query, table);
 	db_free_result(db_query(handle, g_query));
 }
@@ -56,7 +56,7 @@ stock db_table_exists(DB:handle, table[])
 stock db_add_column(DB:handle, table[], name[], type[],
 	length = 11, bool:notnull = false, default[] = "")
 {
-	format(query, sizeof g_query, "alter table %s add %s %s(%d)", table, name, type, length);
+	format(query, sizeof g_query, "alter table %s add if not exists %s %s(%d)", table, name, type, length);
 	format(query, sizeof g_query, "%s %s", g_query, (null ? "not null" : ""));
 	if(strlen(default)) format(query, sizeof g_query, "%s default %s", g_query, default);
 	db_free_result(db_query(handle, query));
