@@ -30,3 +30,8 @@ native RealColumn(Float:real, column[], sinal[] = "=");
 Nova versao! nao testado. <br />
 Nessa versao o objetivo era deixar o mais semelhante possivel com o a_sampdb
 dessa forma seria mais convidativo a entender essa biblioteca que poucos usam
+<br />
+# 22/10
+Foi testado e funciona... mas ainda nao esta do jeito que quero, vou aperfeicoar o codigo imediatamente!
+
+
