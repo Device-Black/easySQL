@@ -33,6 +33,7 @@ dessa forma seria mais convidativo a entender essa biblioteca que poucos usam
 <br />
 <br />
 # Update 22/10
+<p>
 Foi testado e funciona... mas ainda nao esta do jeito que quero, vou aperfeicoar o codigo imediatamente!
-
+</p>
 
