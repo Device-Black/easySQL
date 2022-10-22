@@ -53,9 +53,9 @@ stock db_table_exists(DB:handle, table[])
 	return db_num_rows(cache);
 }
 
-stock db_add_column(DB:handle, table[], name[], type[])
+stock db_add_column(DB:handle, table[], name[])
 {
-	format(query, sizeof g_query, "alter table '%s' add if not exists '%s' %s", table, name, type);
+	format(query, sizeof g_query, "alter table '%s' add if not exists '%s' %s", table, name);
 	db_free_result(db_query(handle, query));
 }
 
