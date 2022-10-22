@@ -29,6 +29,8 @@
 #endif
 #define easySQL_included
 
+#error 'include em atualizacao, nao me utilize ainda'
+
 static g_query[4096], DBResult:g_cache;
 
 #pragma warning disable 239
