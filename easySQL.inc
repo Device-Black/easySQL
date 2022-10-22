@@ -2,7 +2,7 @@
  native db_create_table(DB:handle, table[]);
  native db_drop_table(DB:handle, table[]);
  native db_table_exists(DB:handle, table[]);
- native db_add_column(DB:handle, table[], name[], type[], length = 11, bool:notnull = false, default[] = "");
+ native db_add_column(DB:handle, table[], name[]);
  native db_column_exists(DB:handle, table[], column[]);
  native DBResult:db_pragma_table_info(DB:handle, table[]);
  native DBResult:db_select_all(DB:handle, table[], more[] = "");
@@ -31,20 +31,21 @@
 
 #error 'include em atualizacao, nao me utilize ainda'
 
+/*
 static g_query[4096], DBResult:g_cache;
 
 #pragma warning disable 239
 
 stock db_create_table(DB:handle, table[])
 {
-	strcpy(g_query, "create table if not exists '%s' ('id' integer primary key asc)");
+	strcpy(g_query, "create table if not exists [%s] ([id] integer primary key asc);");
 	format(g_query, sizeof g_query, g_query, table);
 	db_free_result(db_query(handle, g_query));
 }
 
 stock db_drop_table(DB:handle, table[])
 {
-	format(g_query, sizeof g_query, "drop table '%s'", table);
+	format(g_query, sizeof g_query, "drop table [%s];", table);
 	db_free_result(db_query(handle, g_query));
 }
 
@@ -57,32 +58,32 @@ stock db_table_exists(DB:handle, table[])
 
 stock db_add_column(DB:handle, table[], name[])
 {
-	format(query, sizeof g_query, "alter table '%s' add if not exists '%s' %s", table, name);
+	format(query, sizeof g_query, "alter table [%s] add if not exists [%s];", table, name);
 	db_free_result(db_query(handle, query));
 }
 
 stock db_column_exists(DB:handle, table[], column[])
 {
 	if(cache > DBResult:0) db_free_result(cache);
-	format(query, sizeof g_query, "'name' = '%s'", column);
+	format(query, sizeof g_query, "[name] = '%s'", column);
 	cache = db_pragma_table_info(DB:handle, table, g_query);
 }
 
 stock DBResult:db_pragma_table_info(DB:handle, table[], more[] = "")
 {
 	format(g_query, sizeof g_query, "pragma_table_info('%s')", table);
-	return db_select(handle, g_query, more);
+	return db_select_all(handle, g_query, more);
 }
 
 stock DBResult:db_select_all(DB:handle, table[], more[] = "")
 {
-	format(g_query, sizeof g_query, "select * from '%s' %s", table, more);
+	format(g_query, sizeof g_query, "select * from [%s] %s;", table, more);
 	return db_query(handle, g_query);
 }
 
 stock db_delete(DB:handle, table[], more[] = "")
 {
-	format(g_query, sizeof g_query, "delete from '%s' %s", table, more);
+	format(g_query, sizeof g_query, "delete from '%s' %s;", table, more);
 	db_free_result(db_query(handle, g_query));
 }
 
@@ -157,3 +158,4 @@ stock RealColumn(Float:real, column[], sinal[] = "=")
 }
 
 #pragma warning enable 239
+*/
