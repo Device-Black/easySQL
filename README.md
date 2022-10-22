@@ -34,7 +34,7 @@ dessa forma seria mais convidativo a entender essa biblioteca que poucos usam
 <br />
 
 # Update 22/10
-<br />
+<p>
 Foi testado e funciona... mas ainda nao esta do jeito que quero, vou aperfeicoar o codigo imediatamente!
-
+</p>
 
